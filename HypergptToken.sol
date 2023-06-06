@@ -81,26 +81,6 @@ abstract contract Ownable is Context {
     }
 
     /**
-     * @dev Leaves the contract without owner. It will not be possible to call
-     * `onlyOwner` functions anymore. Can only be called by the current owner.
-     *
-     * NOTE: Renouncing ownership will leave the contract without an owner,
-     * thereby removing any functionality that is only available to the owner.
-     */
-    function renounceOwnership() public virtual onlyOwner {
-        _transferOwnership(address(0));
-    }
-
-    /**
-     * @dev Transfers ownership of the contract to a new account (`newOwner`).
-     * Can only be called by the current owner.
-     */
-    function transferOwnership(address newOwner) public virtual onlyOwner {
-        require(newOwner != address(0), "Ownable: new owner is the zero address");
-        _transferOwnership(newOwner);
-    }
-
-    /**
      * @dev Transfers ownership of the contract to a new account (`newOwner`).
      * Internal function without access restriction.
      */
@@ -280,6 +260,7 @@ contract BEP20 is Context, IBEP20, IERC20Metadata {
     constructor(string memory name_, string memory symbol_) {
         _name = name_;
         _symbol = symbol_;
+
     }
 
     /**
@@ -576,7 +557,7 @@ contract BEP20 is Context, IBEP20, IERC20Metadata {
     function _afterTokenTransfer(address from, address to, uint256 amount) internal virtual {}
 }
 
-// File: HypergptToken.sol
+
 
 
 pragma solidity ^0.8.9;
@@ -586,9 +567,5 @@ pragma solidity ^0.8.9;
 contract MyToken is BEP20, Ownable {
     constructor() BEP20("HYPERGPT", "HGPT") {
         _mint(msg.sender, 1000000000 * 10 ** decimals());
-    }
-
-    function mint(address to, uint256 amount) public onlyOwner {
-        _mint(to, amount);
     }
 }
