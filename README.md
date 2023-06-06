@@ -2,4 +2,4 @@
 
 Testnet
 
-https://testnet.bscscan.com/token/0xa45526744f6f99b27ebd193fdedfdabe1e0adc92
+https://testnet.bscscan.com/token/0xd944919a102ecbabffb7c45eb041d08c76996a2e
